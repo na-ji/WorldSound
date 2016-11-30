@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>TrivaMarket | Sign in</title>
+    <title>WorldSound | Sign in</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -28,7 +28,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="<c:url value='/'/>"><b>Triva</b>Market</a>
+            <a href="<c:url value='/'/>"><b>World</b>Sound</a>
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
@@ -59,17 +59,6 @@
     <script src="/plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <!-- Bootstrap 3.3.5 -->
     <script src="/bootstrap/js/bootstrap.min.js"></script>
-    <!-- iCheck -->
-    <script src="/plugins/iCheck/icheck.min.js"></script>
-    <script>
-        $(function() {
-            $('input').iCheck({
-                checkboxClass: 'icheckbox_square-blue',
-                radioClass: 'iradio_square-blue',
-                increaseArea: '20%' // optional
-            });
-        });
-    </script>
 </body>
 
 </html>
