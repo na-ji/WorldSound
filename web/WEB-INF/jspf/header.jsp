@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>TrivaMarket</title>
+    <title>WorldSound</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -23,7 +23,7 @@
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect.
     -->
-    <link rel="stylesheet" href="dist/css/skins/skin-yellow.min.css">
+    <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -31,16 +31,16 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body class="hold-transition skin-yellow sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
         <!-- Main Header -->
         <header class="main-header">
             <!-- Logo -->
             <a href="<c:url value='/'/>" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>T</b>Mkt</span>
+                <span class="logo-mini"><b>W</b>S</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Triva</b>Market</span>
+                <span class="logo-lg"><b>World</b>Sound</span>
             </a>
             <!-- Header Navbar -->
             <nav class="navbar navbar-static-top" role="navigation">
@@ -55,16 +55,11 @@
                         <li>
                             <a href="#" data-toggle="control-sidebar">
                                 <i class="fa fa-shopping-basket"></i>
-                                <span class="label label-success">
-                                <c:choose>
-                                    <c:when test="${cart.numberOfItems == null}">
-                                        0
-                                    </c:when>
-                                    <c:otherwise>
+                                <c:if test="${cart.numberOfItems != null}">
+                                    <span class="label label-success">
                                         ${cart.numberOfItems}
-                                    </c:otherwise>
-                                </c:choose>
-                                </span>
+                                    </span>
+                                </c:if>
                             </a>
                         </li>
                     </ul>

@@ -3,15 +3,15 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Bienvenue sur TrivaMarket !
+                    Bienvenue sur WorldSound !
                 </h1>
             </section>
             <!-- Main content -->
             <section class="content">
                 <div class="row">
                     <div class="col-sm-12">
-                        <p>TrivaMarket est un service de vente en ligne de fournitures scolaires.</p>
-                        <p>Contenant plus de 16 références, TrivaMarket vous aide à vous équiper toute l'année !</p>
+                        <p>WorldSound est un service de vente en ligne de fournitures scolaires.</p>
+                        <p>Contenant plus de 16 références, WorldSound vous aide à vous équiper toute l'année !</p>
                     </div>
                 </div>
                 <div class="row">
