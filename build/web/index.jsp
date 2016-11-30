@@ -10,19 +10,9 @@
             <section class="content">
                 <div class="row">
                     <div class="col-sm-12">
-                        <p>WorldSound est un service de vente en ligne de fournitures scolaires.</p>
-                        <p>Contenant plus de 16 références, WorldSound vous aide à vous équiper toute l'année !</p>
+                        <p>WorldSound est un service de vente en ligne de musique.</p>
+                        <p>Contenant plus de 16 références, WorldSound vous aide à vous faire plaisir !</p>
                     </div>
-                </div>
-                <div class="row">
-                    <c:forEach var="category" items="${categories}">
-                        <div class="col-sm-3" style="text-align: center;">
-                            <a href="category?${category.id}">
-                                <i class="fa ${category.fa} fa-5x"></i><br />
-                                <h4>${category.name}</h4>
-                            </a>
-                        </div>
-                    </c:forEach>
                 </div>
             </section>
             <!-- /.content -->

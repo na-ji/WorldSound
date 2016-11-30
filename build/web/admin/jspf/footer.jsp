@@ -6,7 +6,7 @@
             <!-- Default to the left -->
             <strong>
                 Copyright &copy; <script type="text/javascript">document.write(new Date().getFullYear());</script> 
-                <a href="<c:url value='/'/>">TrivaMarket</a>.
+                <a href="<c:url value='/'/>">WorldSound</a>.
             </strong> 
             Tout droits réservés
         </footer>
