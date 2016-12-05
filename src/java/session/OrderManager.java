@@ -53,7 +53,7 @@ public class OrderManager {
         }
     }
 
-    private Customer addCustomer(String name, String email, String phone, String address, String cityRegion, String ccNumber) {
+    public Customer addCustomer(String name, String email, String phone, String address, String cityRegion, String ccNumber) {
 
         Customer customer = new Customer();
         customer.setName(name);

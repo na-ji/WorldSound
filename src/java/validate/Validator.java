@@ -33,7 +33,7 @@ public class Validator {
 
 
     // performs simple validation on checkout form
-    public boolean validateForm(String name,
+    public boolean validateFormCustomer(String name,
                                 String email,
                                 String phone,
                                 String address,
@@ -89,6 +89,54 @@ public class Validator {
             errorFlag = true;
             ccNumberError = true;
             request.setAttribute("ccNumberError", ccNumberError);
+        }
+
+        return errorFlag;
+    }
+
+
+    // performs simple validation on checkout form
+    public boolean validateFormUser(String username,
+                                String email,
+                                String password1,
+                                String password2,
+                                HttpServletRequest request) {
+
+        boolean errorFlag = false;
+        boolean usernameError;
+        boolean emailError;
+        boolean password1Error;
+        boolean password2Error;
+
+        if (username == null
+                || username.equals("")
+                || username.length() > 20
+                || username.length() < 6) {
+            errorFlag = true;
+            usernameError = true;
+            request.setAttribute("usernameError", usernameError);
+        }
+        if (email == null
+                || email.equals("")
+                || !email.contains("@")) {
+            errorFlag = true;
+            emailError = true;
+            request.setAttribute("emailError", emailError);
+        }
+        if (password1 == null
+                || password1.equals("")
+                || password1.length() < 8) {
+            errorFlag = true;
+            password1Error = true;
+            request.setAttribute("password1Error", password1Error);
+        }
+        if (password2 == null
+                || password2.equals("")
+                || password2.length() < 8
+                || !password2.equals(password1)) {
+            errorFlag = true;
+            password2Error = true;
+            request.setAttribute("password2Error", password2Error);
         }
 
         return errorFlag;

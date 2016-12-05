@@ -20,14 +20,18 @@ import session.OrderManager;
 import session.ProductFacade;
 import validate.Validator;
 
-@WebServlet(name = "Controller",
-            loadOnStartup = 1,
-            urlPatterns = {"/category",
-                           "/addToCart",
-                           "/viewCart",
-                           "/updateCart",
-                           "/checkout",
-                           "/purchase"})
+@WebServlet(
+    name = "Controller",
+    loadOnStartup = 1,
+    urlPatterns = {
+        "/category",
+        "/addToCart",
+        "/viewCart",
+        "/updateCart",
+        "/checkout",
+        "/purchase"
+    }
+)
 public class ControllerServlet extends HttpServlet {
 
     private String surcharge;
@@ -195,7 +199,7 @@ public class ControllerServlet extends HttpServlet {
 
                 // validate user data
                 boolean validationErrorFlag = false;
-                validationErrorFlag = validator.validateForm(name, email, phone, address, cityRegion, ccNumber, request);
+                validationErrorFlag = validator.validateFormCustomer(name, email, phone, address, cityRegion, ccNumber, request);
 
                 // if validation error found, return user to checkout
                 if (validationErrorFlag == true) {
