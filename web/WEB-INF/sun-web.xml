@@ -3,8 +3,8 @@
 <sun-web-app error-url="">
   <context-root>/</context-root>
   <security-role-mapping>
-    <role-name>trivaMarketAdmin</role-name>
-    <group-name>trivaMarketAdmin</group-name>
+    <role-name>admin</role-name>
+    <group-name>admin</group-name>
   </security-role-mapping>
   <class-loader delegate="true"/>
   <jsp-config>

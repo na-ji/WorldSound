@@ -24,7 +24,7 @@ import session.OrderManager;
                            "/admin/customerRecord",
                            "/admin/orderRecord",
                            "/admin/logout"})
-@ServletSecurity( @HttpConstraint(rolesAllowed = {"trivaMarketAdmin"}) )
+@ServletSecurity( @HttpConstraint(rolesAllowed = {"admin"}) )
 public class AdminServlet extends HttpServlet {
 
     @EJB
