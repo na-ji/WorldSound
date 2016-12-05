@@ -17,7 +17,8 @@ import validate.Validator;
     name = "User",
     loadOnStartup = 1,
     urlPatterns = {
-        "/register"
+        "/register",
+        "/logout"
     }
 )
 public class UserServlet extends HttpServlet {
@@ -38,6 +39,13 @@ public class UserServlet extends HttpServlet {
 
         String userPath = request.getServletPath();
         HttpSession session = request.getSession();
+        
+        if (userPath.equals("/logout")) {
+            session = request.getSession();
+            session.invalidate();   // terminate session
+            response.sendRedirect("/");
+            return;
+        }
         
         // use RequestDispatcher to forward request internally
         String url = "/login/register.jsp";

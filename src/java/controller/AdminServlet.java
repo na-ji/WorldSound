@@ -23,7 +23,9 @@ import session.OrderManager;
                            "/admin/viewCustomers",
                            "/admin/customerRecord",
                            "/admin/orderRecord",
-                           "/admin/logout"})
+                           "/admin/logout"
+            }
+)
 @ServletSecurity( @HttpConstraint(rolesAllowed = {"admin"}) )
 public class AdminServlet extends HttpServlet {
 
