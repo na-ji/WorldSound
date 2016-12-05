@@ -8,7 +8,12 @@
                 Copyright &copy; <script type="text/javascript">document.write(new Date().getFullYear());</script> 
                 <a href="<c:url value='/'/>">WorldSound</a>.
             </strong> 
-            Tout droits réservés. <a href="<c:url value='/admin'/>">Admin Console</a>
+            Tout droits réservés. 
+            <c:if test="${not empty pageContext.request.userPrincipal}">
+                <c:if test="${pageContext.request.isUserInRole('admin')}">
+                    <a href="<c:url value='/admin'/>">Admin Console</a>
+                </c:if>
+            </c:if>
         </footer>
 
         <!-- Control Sidebar -->

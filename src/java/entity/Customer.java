@@ -58,7 +58,7 @@ public class Customer implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
     private Collection<CustomerOrder> customerOrderCollection;
     @JoinColumn(name = "user_username", referencedColumnName = "username")
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, optional = false)
     private User user;
 
     public Customer() {

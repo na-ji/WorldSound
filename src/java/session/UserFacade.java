@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Stateless
-public class UserFacade extends AbstractFacade<Customer> {
+public class UserFacade extends AbstractFacade<User> {
     @PersistenceContext(unitName = "TrivaMarketPU")
     private EntityManager em;
 
@@ -17,7 +17,7 @@ public class UserFacade extends AbstractFacade<Customer> {
     }
 
     public UserFacade() {
-        super(Customer.class);
+        super(User.class);
     }
     
     public User addUser(String username, String email, String password) {

@@ -70,13 +70,25 @@
         <aside class="main-sidebar">
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">
+                <c:if test="${not empty pageContext.request.userPrincipal}">
+                    <!-- Sidebar user panel -->
+                    <div class="user-panel">
+                        <div class="pull-left image">
+                            <img src="https://www.gravatar.com/avatar/${user.getMD5Email()}?s=160&d=mm" class="img-circle" alt="User Image">
+                        </div>
+                        <div class="pull-left info">
+                            <p>${pageContext.request.userPrincipal.toString()}</p>
+                            <i class="fa fa-circle text-success"></i> Connecté
+                        </div>
+                    </div>
+                </c:if>
                 <!-- search form -->
                 <form action="#" method="get" class="sidebar-form">
                   <div class="input-group">
                     <input type="text" name="q" class="form-control" placeholder="Rechercher...">
                         <span class="input-group-btn">
-                          <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                          </button>
+                            <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                            </button>
                         </span>
                   </div>
                 </form>
@@ -123,6 +135,22 @@
                             <span>Professionnels</span>
                         </a>
                     </li>
+                    <c:if test="${empty pageContext.request.userPrincipal}">
+                        <li>
+                            <a href="<c:url value='/login'/>">
+                                <i class="fa fa-fw fa-sign-in"></i>
+                                <span>Connexion</span>
+                            </a>
+                        </li>
+                    </c:if>
+                    <c:if test="${not empty pageContext.request.userPrincipal}">
+                        <li>
+                            <a href="<c:url value='/logout'/>">
+                                <i class="fa fa-fw fa-power-off"></i>
+                                <span>Déconnexion</span>
+                            </a>
+                        </li>
+                    </c:if>
                 </ul>
                 <!-- /.sidebar-menu -->
             </section>

@@ -35,7 +35,7 @@ public class User implements Serializable {
     @Column(name = "password")
     private String password;
     
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "user", optional = false)
     private Customer customer;
 
     /**
@@ -94,6 +94,10 @@ public class User implements Serializable {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+    
+    public String getMD5Email() {
+        return DigestUtils.md5Hex(this.customer.getEmail());
+    }
 
     @Override
     public int hashCode() {
@@ -116,7 +120,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.User[ username=" + username + " ]";
+        return this.username;
     }
     
 }

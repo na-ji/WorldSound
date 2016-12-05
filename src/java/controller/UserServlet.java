@@ -18,6 +18,7 @@ import validate.Validator;
     loadOnStartup = 1,
     urlPatterns = {
         "/register",
+        "/login",
         "/logout"
     }
 )
@@ -48,7 +49,7 @@ public class UserServlet extends HttpServlet {
         }
         
         // use RequestDispatcher to forward request internally
-        String url = "/login/register.jsp";
+        String url = "/login/" + userPath + ".jsp";
 
         try {
             request.getRequestDispatcher(url).forward(request, response);

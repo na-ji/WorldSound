@@ -1,4 +1,4 @@
-            <p class="login-box-msg">Admin console</p>
+            <p class="login-box-msg">Connexion</p>
 
             <form action="j_security_check" method="post">
                 <div class="form-group has-feedback">
