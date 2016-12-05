@@ -16,3 +16,5 @@
                     <!-- /.col -->
                 </div>
             </form>
+            
+            <a href="<c:url value='/register'/>">S'inscrire</a>

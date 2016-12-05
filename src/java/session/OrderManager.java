@@ -52,6 +52,20 @@ public class OrderManager {
             return 0;
         }
     }
+    
+    @TransactionAttribute(TransactionAttributeType.REQUIRED)
+    public int placeOrder(Customer customer, ShoppingCart cart) {
+
+        try {
+            Customer newCustomer = em.merge(customer);
+            CustomerOrder order = addOrder(newCustomer, cart);
+            addOrderedItems(order, cart);
+            return order.getId();
+        } catch (Exception e) {
+            context.setRollbackOnly();
+            return 0;
+        }
+    }
 
     public Customer addCustomer(String name, String email, String phone, String address, String cityRegion, String ccNumber) {
 

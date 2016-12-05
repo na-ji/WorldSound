@@ -30,37 +30,37 @@
                                 <div class="form-group<c:if test='${!empty nameError}'> has-error</c:if>">
                                     <label for="name" class="col-sm-2 control-label">Nom</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" required="required"id="name" name="name" placeholder="Nom" type="text" value="${param.name}">
+                                        <input class="form-control" required="required"id="name" name="name" placeholder="Nom" type="text" value="<c:if test="${empty param.name}">${name}</c:if>${param.name}">
                                     </div>
                                 </div>
                                 <div class="form-group <c:if test='${!empty emailError}'> has-error</c:if>">
                                     <label for="email" class="col-sm-2 control-label">E-mail</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" required="required"id="email" name="email" placeholder="E-mail" type="email" value="${param.email}">
+                                        <input class="form-control" required="required"id="email" name="email" placeholder="E-mail" type="email" value="<c:if test="${empty param.email}">${email}</c:if>${param.email}">
                                     </div>
                                 </div>
                                 <div class="form-group <c:if test='${!empty phoneError}'> has-error</c:if>">
                                     <label for="phone" class="col-sm-2 control-label">Tel</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" required="required"id="phone" name="phone" placeholder="Tel" type="tel" value="${param.phone}">
+                                        <input class="form-control" required="required"id="phone" name="phone" placeholder="Tel" type="tel" value="<c:if test="${empty param.phone}">${phone}</c:if>${param.phone}">
                                     </div>
                                 </div>
                                 <div class="form-group <c:if test='${!empty addressError}'> has-error</c:if>">
                                     <label for="address" class="col-sm-2 control-label">Adresse</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" required="required"id="address" name="address" placeholder="Adresse" type="text" value="${param.address}">
+                                        <input class="form-control" required="required"id="address" name="address" placeholder="Adresse" type="text" value="<c:if test="${empty param.address}">${address}</c:if>${param.address}">
                                     </div>
                                 </div>
                                 <div class="form-group <c:if test='${!empty cityRegionError}'> has-error</c:if>">
                                     <label for="cityRegion" class="col-sm-2 control-label">Ville</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" required="required" id="cityRegion" name="cityRegion" placeholder="Ville" type="text" value="${param.cityRegion}">
+                                        <input class="form-control" required="required" id="cityRegion" name="cityRegion" placeholder="Ville" type="text" value="<c:if test="${empty param.cityRegion}">${cityRegion}</c:if>${param.cityRegion}">
                                     </div>
                                 </div>
                                 <div class="form-group <c:if test='${!empty ccNumberError}'> has-error</c:if>">
                                     <label for="creditcard" class="col-sm-2 control-label">N° Carte Crédit</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" required="required"id="creditcard" name="creditcard" placeholder="N° Carte Crédit" type="text" value="${param.address}">
+                                        <input class="form-control" required="required"id="creditcard" name="creditcard" placeholder="N° Carte Crédit" type="text" value="<c:if test="${empty param.creditcard}">${creditcard}</c:if>${param.creditcard}">
                                     </div>
                                 </div>
                             </div>

@@ -3,6 +3,8 @@ package controller;
 import cart.ShoppingCart;
 import entity.Category;
 import entity.Product;
+import entity.Customer;
+import entity.User;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Locale;
@@ -18,6 +20,7 @@ import javax.servlet.http.HttpSession;
 import session.CategoryFacade;
 import session.OrderManager;
 import session.ProductFacade;
+import session.UserFacade;
 import validate.Validator;
 
 @WebServlet(
@@ -42,6 +45,8 @@ public class ControllerServlet extends HttpServlet {
     private ProductFacade productFacade;
     @EJB
     private OrderManager orderManager;
+    @EJB
+    private UserFacade userFacade;
 
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
@@ -108,6 +113,16 @@ public class ControllerServlet extends HttpServlet {
 
         // if checkout page is requested
         } else if (userPath.equals("/checkout")) {
+            if (request.getRemoteUser() != null) {
+                User user = userFacade.find(request.getRemoteUser());
+                Customer customer = user.getCustomer();
+                request.setAttribute("name", customer.getName());
+                request.setAttribute("email", customer.getEmail());
+                request.setAttribute("phone", customer.getPhone());
+                request.setAttribute("address", customer.getAddress());
+                request.setAttribute("cityRegion", customer.getCityRegion());
+                request.setAttribute("creditcard", customer.getCcNumber());
+            }
             ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
         // calculate total
             cart.calculateTotal(surcharge);
@@ -208,8 +223,15 @@ public class ControllerServlet extends HttpServlet {
 
                     // otherwise, save order to database
                 } else {
-
-                    int orderId = orderManager.placeOrder(name, email, phone, address, cityRegion, ccNumber, cart);
+                    User user = userFacade.find(request.getRemoteUser());
+                    Customer customer = user.getCustomer();
+                    customer.setName(name);
+                    customer.setEmail(email);
+                    customer.setPhone(phone);
+                    customer.setAddress(address);
+                    customer.setCityRegion(cityRegion);
+                    customer.setCcNumber(ccNumber);
+                    int orderId = orderManager.placeOrder(customer, cart);
 
                     // if order processed successfully send user to confirmation page
                     if (orderId != 0) {
