@@ -60,7 +60,7 @@ public class OrderManager {
         customer.setEmail(email);
         customer.setPhone(phone);
         customer.setAddress(address);
-        customer.setcityRegion(cityRegion);
+        customer.setCityRegion(cityRegion);
         customer.setCcNumber(ccNumber);
 
         em.persist(customer);

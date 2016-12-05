@@ -9,9 +9,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -53,6 +56,9 @@ public class Customer implements Serializable {
     private String ccNumber;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
     private Collection<CustomerOrder> customerOrderCollection;
+    @JoinColumn(name = "user_username", referencedColumnName = "username")
+    @OneToOne(cascade = CascadeType.ALL)
+    private User user;
 
     public Customer() {
     }
@@ -111,11 +117,11 @@ public class Customer implements Serializable {
         this.address = address;
     }
 
-    public String getcityRegion() {
+    public String getCityRegion() {
         return cityRegion;
     }
 
-    public void setcityRegion(String cityRegion) {
+    public void setCityRegion(String cityRegion) {
         this.cityRegion = cityRegion;
     }
 
@@ -133,6 +139,14 @@ public class Customer implements Serializable {
 
     public void setCustomerOrderCollection(Collection<CustomerOrder> customerOrderCollection) {
         this.customerOrderCollection = customerOrderCollection;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
