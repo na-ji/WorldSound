@@ -2,11 +2,13 @@ package entity;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.apache.commons.codec.digest.DigestUtils;
 
@@ -32,6 +34,9 @@ public class User implements Serializable {
     @Basic(optional = false)
     @Column(name = "password")
     private String password;
+    
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
+    private Customer customer;
 
     /**
      *
@@ -72,6 +77,22 @@ public class User implements Serializable {
      */
     public String hashPassord(String password) {
         return DigestUtils.sha256Hex(password);
+    }
+
+    /**
+     *
+     * @return Customer customer
+     */
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    /**
+     *
+     * @param customer Customer
+     */
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     @Override
