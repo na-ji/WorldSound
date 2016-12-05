@@ -30,17 +30,19 @@
             <include-coda>/admin/jspf/footer.jsp</include-coda>
         </jsp-property-group>
         <jsp-property-group>
-            <description>JSP configuration for the admin console login page</description>
-            <url-pattern>/admin/error.jsp</url-pattern>
-            <url-pattern>/admin/login.jsp</url-pattern>
+            <description>JSP configuration for the login page</description>
+            <url-pattern>/login/login.jsp</url-pattern>
+            <url-pattern>/login/register.jsp</url-pattern>
+            <include-prelude>/login/jspf/header.jsp</include-prelude>
+            <include-coda>/login/jspf/footer.jsp</include-coda>
         </jsp-property-group>
     </jsp-config>
     <login-config>
         <auth-method>FORM</auth-method>
         <realm-name>jdbcRealm</realm-name>
         <form-login-config>
-            <form-login-page>/admin/login.jsp</form-login-page>
-            <form-error-page>/admin/login.jsp</form-error-page>
+            <form-login-page>/login/login.jsp</form-login-page>
+            <form-error-page>/login/login.jsp</form-error-page>
         </form-login-config>
     </login-config>
     <resource-ref>
